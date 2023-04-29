@@ -156,10 +156,6 @@
     const galleryLightbox = GLightbox({
       selector: '.gallery-lightbox'
     });
-
-    const gallery = GLightbox({
-      selector: '.gallery'
-    });
   
     /**
      * Animation on scroll
