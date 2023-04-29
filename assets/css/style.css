@@ -1,0 +1,599 @@
+/*--------------------------------------------------
+ General 
+ ---------------------------------------------------*/
+body{
+    background-color: black;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 99999;
+  background-color: black;
+}
+
+#preloader:before,
+#preloader:after {
+  content: "";
+  background-color: var(--color-secondary);
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  height: 100%;
+  transition: all 0.3s ease 0s;
+  z-index: -1;
+}
+
+#preloader:after {
+  left: auto;
+  right: 0;
+}
+
+#preloader .line {
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  width: 1px;
+  height: 280px;
+  transition: all 0.8s ease 0s;
+}
+
+#preloader .line:before {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 0%;
+  transform: translateY(-50%);
+  animation: lineincrease 1000ms ease-in-out 0s forwards;
+}
+
+#preloader .line:after {
+  content: "";
+  position: absolute;
+  background-color: #999;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  transform: translateY(-100%);
+  animation: linemove 1200ms linear 0s infinite;
+  animation-delay: 2000ms;
+}
+
+#preloader.loaded .line {
+  opacity: 0;
+  height: 100% !important;
+}
+
+#preloader.loaded .line:after {
+  opacity: 0;
+}
+
+#preloader.loaded:before,
+#preloader.loaded:after {
+  animation: preloaderfinish 300ms ease-in-out 500ms forwards;
+}
+
+@keyframes lineincrease {
+  0% {
+    height: 0%;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes linemove {
+  0% {
+    transform: translateY(200%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes preloaderfinish {
+  0% {
+    width: 5 0%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
+
+/*--------------------------------------------------
+ hyperLink
+ ---------------------------------------------------- */
+a{
+    font-size: 1em;
+    color: white;
+    text-decoration: none;
+}
+
+a:target , a:hover , li:hover{
+    color: rgb(192, 5, 5);
+}
+
+/*------------------------------------------------------
+ icons 
+ -------------------------------------------------------*/
+li{
+    color: white;
+}
+
+/*-------------------------------------------------------
+Scrolbar
+---------------------------------------------------------*/
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(192, 5, 5);
+}
+
+
+
+
+/*--------------------------------------------------------
+ header Section
+ ---------------------------------------------------------- */
+nav{
+    background-color: black !important;
+    /* position: fixed !important;
+    top: 0; */
+}
+
+.nav-link.active{
+    color: rgb(192, 5, 5);
+}
+
+.navbar-brand{
+    font-size: 1.5em;
+}
+
+nav .dropdown .dropdown-menu{
+    background-color: transparent;
+}
+
+nav .dropdown .dropdown-menu li a{
+    color: white;
+}
+
+nav .dropdown .dropdown-menu li a:hover{
+    color: rgb(192, 5, 5);
+}
+
+nav .collapse.navbar-collapse{
+max-width: 350px;
+}
+
+
+
+/*--------------------------------------------------------
+ hero Section
+ ---------------------------------------------------------- */
+.hero-section{
+    margin: 150px 50px;
+}
+
+.hero-section h1{
+   font-size: 50px;
+   font-family: 'Alkatra', cursive;
+    font-family: 'Castoro Titling', cursive;
+
+}
+
+.hero-section .btn{
+    padding: 15px;
+    width: 150px;
+    height: 50px;
+    color: white;
+    border: 2px dashed  rgb(192, 5, 5);
+   font-family: 'Alkatra', cursive;
+    font-family: 'Castoro Titling', cursive;
+
+}
+
+.hero-section .btn:hover{
+    color: white;
+    border: 2px solid  rgb(192, 5, 5);
+}
+
+@media only screen and (max-width: 600px) {
+    .hero-section h1{
+        font-size: 30px;
+     
+     }
+}
+
+
+/*--------------------------------------------------------
+ home gallery Section
+ ---------------------------------------------------------- */
+#gallery img{
+    width: 100%;
+    height: 350px;
+}
+
+.gallery .gallery-item {
+    overflow: hidden;
+    border-right: 3px solid #454035;
+    border-bottom: 3px solid #454035;
+  }
+  
+  .gallery .gallery-item img {
+    transition: all ease-in-out 0.4s;
+  }
+  
+  .gallery .gallery-item:hover img {
+    transform: scale(1.1);
+  }
+
+/*--------------------------------------------------------
+ About Section
+ ---------------------------------------------------------- */
+
+ .about{
+    margin: 100px 0 !important;
+ }
+
+ .about h1{
+    color: white;
+    font-size: 50px;
+    font-family: 'Alkatra', cursive;
+     font-family: 'Castoro Titling', cursive;
+ }
+
+ 
+ .about .about-title{
+    color: rgb(192, 5, 5);
+    font-size: 30px;
+    font-family: 'Alkatra', cursive;
+     font-family: 'Castoro Titling', cursive;
+ }
+
+ .about .patagraph{
+    color: white;
+    font-size: 15px;
+ }
+
+ .about h6{
+    color: white;
+    font-family: 'Alkatra', cursive;
+ }
+
+
+ /*--------------------------------------------------------
+ Contact Section
+ ---------------------------------------------------------- */
+ .contact{
+    margin: 100px 0 !important;
+ }
+
+ .contact h1{
+    color: white;
+    font-size: 50px;
+    font-family: 'Alkatra', cursive;
+     font-family: 'Castoro Titling', cursive;
+ }
+
+ .contact h4{
+    color: rgb(139, 12, 12);
+ }
+
+ .contact .info {
+    width: 100%;
+  }
+  
+  .contact .info i {
+    font-size: 40px;
+    color: #a12908;
+    float: left;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .contact .info h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .contact .info p {
+    padding: 0 0 0 60px;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: white;
+  }
+  
+  .contact .info .open-hours, .contact .info .email, .contact .info .phone {
+    margin-top: 40px;
+  }
+  
+  .contact .php-email-form {
+    width: 100%;
+  }
+  
+  .contact .php-email-form .form-group {
+    padding-bottom: 8px;
+  }
+  
+  .contact .php-email-form .validate {
+    display: none;
+    color: red;
+    margin: 0 0 15px 0;
+    font-weight: 400;
+    font-size: 13px;
+  }
+  
+  .contact .php-email-form .error-message {
+    display: none;
+    color: #fff;
+    background: #ed3c0d;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+  }
+  
+  .contact .php-email-form .sent-message {
+    display: none;
+    color: #fff;
+    background: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+  }
+  
+  .contact .php-email-form .loading {
+    display: none;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .contact .php-email-form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid rgb(192, 5, 5);
+    border-top-color: rgb(192, 5, 5);
+    -webkit-animation: animate-loading 1s linear infinite;
+    animation: animate-loading 1s linear infinite;
+  }
+  
+  .contact .php-email-form input, .contact .php-email-form textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    background: #0c0b09;
+    border-color: rgb(192, 5, 5);
+    color: white;
+  }
+  
+  .contact .php-email-form input::-webkit-input-placeholder, .contact .php-email-form textarea::-webkit-input-placeholder {
+    color: #a49b89;
+  }
+  
+  .contact .php-email-form input::-moz-placeholder, .contact .php-email-form textarea::-moz-placeholder {
+    color: #a49b89;
+  }
+  
+  .contact .php-email-form input::placeholder, .contact .php-email-form textarea::placeholder {
+    color: #a49b89;
+  }
+  
+  .contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+    border-color: rgb(192, 5, 5);
+  }
+  
+  .contact .php-email-form input {
+    height: 44px;
+  }
+  
+  .contact .php-email-form textarea {
+    padding: 10px 12px;
+  }
+  
+  .contact .php-email-form button[type="submit"] {
+    background: rgb(192, 5, 5);
+    border: 0;
+    padding: 10px 35px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+  }
+  
+/*--------------------------------------------------------
+ gallery page Section
+ ---------------------------------------------------------- */
+.gallery-header{
+  margin: 150px 50px;
+}
+
+.gallery-header{
+  font-size: 50px;
+  font-family: 'Alkatra', cursive;
+  font-family: 'Castoro Titling', cursive;
+}
+  
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+    position: relative;
+    padding: 80px 0;
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  #footer:before {
+    content: "";
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+  
+  #footer .footer-top .footer-info {
+    margin-bottom: 30px;
+  }
+  
+  #footer .footer-top .footer-info h3 {
+    font-size: 24px;
+    margin: 0 0 20px 0;
+    padding: 2px 0 2px 0;
+    line-height: 1;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  #footer .footer-top .footer-info p {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 0;
+    font-family: "Playfair Display", serif;
+    color: #fff;
+  }
+  
+  #footer .footer-top .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: #28251f;
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+  }
+  
+  #footer .footer-top .social-links a:hover {
+    background: rgb(192, 5, 5);
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  #footer .footer-top h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  
+  #footer .footer-top .footer-links {
+    margin-bottom: 30px;
+  }
+  
+  #footer .footer-top .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #footer .footer-top .footer-links ul i {
+    padding-right: 2px;
+    color: rgb(192, 5, 5);
+    font-size: 18px;
+    line-height: 1;
+  }
+  
+  #footer .footer-top .footer-links ul li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  #footer .footer-top .footer-links ul li:first-child {
+    padding-top: 0;
+  }
+  
+  #footer .footer-top .footer-links ul a {
+    color: #fff;
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 1;
+  }
+  
+  #footer .footer-top .footer-links ul a:hover {
+    color: rgb(192, 5, 5);
+  }
+  
+  #footer .footer-top .footer-newsletter form {
+    margin-top: 30px;
+    background: #28251f;
+    padding: 6px 10px;
+    position: relative;
+    border-radius: 50px;
+    border: 1px solid #454035;
+  }
+  
+  #footer .footer-top .footer-newsletter form input[type="email"] {
+    border: 0;
+    padding: 4px;
+    width: calc(100% - 110px);
+    background: #28251f;
+    color: white;
+  }
+  
+  #footer .footer-top .footer-newsletter form input[type="submit"] {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    border: 0;
+    background: none;
+    font-size: 16px;
+    padding: 0 20px 2px 20px;
+    background: rgb(192, 5, 5);
+    color: #fff;
+    transition: 0.3s;
+    border-radius: 50px;
+  }
+  
+  #footer .footer-top .footer-newsletter form input[type="submit"]:hover {
+    background: #d3af71;
+  }
+  
+  #footer .copyright {
+    text-align: center;
+    padding-top: 30px;
+  }
+  
